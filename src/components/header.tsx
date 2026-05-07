@@ -117,14 +117,6 @@ export function Header() {
           <div className="hidden md:flex items-center gap-2">
             <ThemeToggle />
             <NotificationBell />
-            <button
-              onClick={() => { /* keyboard shortcuts shown via ? key */ }}
-              className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors tooltip-readium"
-              aria-label="Keyboard shortcuts (press ?)"
-              data-tooltip="Keyboard shortcuts (?)"
-            >
-              <kbd className="kbd">?</kbd>
-            </button>
 
             {hydrated && isAuthenticated && user ? (
               <div className="relative" ref={userMenuRef}>
@@ -207,7 +199,7 @@ export function Header() {
                 <Button
                   size="md"
                   onClick={() => handleNavigate('signup')}
-                  className="rounded-xl btn-magnetic"
+                  className="rounded-full btn-magnetic"
                 >
                   <UserPlus className="w-4 h-4" />
                   Sign up
@@ -340,7 +332,7 @@ export function Header() {
                     </Button>
                     <Button
                       onClick={() => handleNavigate('signup')}
-                      className="text-lg py-3.5 h-auto rounded-xl"
+                      className="text-lg py-3.5 h-auto rounded-full"
                     >
                       <UserPlus className="w-4 h-4" />
                       Sign up

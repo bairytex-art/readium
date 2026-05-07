@@ -166,7 +166,7 @@ export function LoginPage() {
             <Button
               type="submit"
               size="xl"
-              className="w-full font-semibold group rounded-xl shadow-md shadow-primary/20 hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 btn-magnetic"
+              className="w-full font-semibold group rounded-full shadow-md shadow-primary/20 hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 btn-magnetic"
             >
               Log In
               <ArrowRight className="w-5 h-5 ml-1 group-hover:translate-x-1 transition-transform duration-300" />
