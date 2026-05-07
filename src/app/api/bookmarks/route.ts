@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server"
 import { db } from "@/lib/db"
 import { getServerSession } from "next-auth"
-import { authOptions } from "../auth/[...nextauth]/route"
+import { authOptions } from "@/app/api/auth/[...nextauth]/auth-options"
 
 // GET /api/bookmarks — Get user's bookmarks
 export async function GET(request: NextRequest) {
