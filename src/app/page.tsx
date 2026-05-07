@@ -1,65 +1,117 @@
-import Image from "next/image";
+'use client'
+
+import { useNavigation } from '@/lib/store'
+import { Header } from '@/components/header'
+import { Footer } from '@/components/footer'
+import { HomePage } from '@/components/pages/home-page'
+import { ReadPage } from '@/components/pages/read-page'
+import { BlogDetail } from '@/components/pages/blog-detail'
+import { WritePage } from '@/components/pages/write-page'
+import { OurStoryPage } from '@/components/pages/our-story-page'
+import { SignupPage } from '@/components/pages/signup-page'
+import { LoginPage } from '@/components/pages/login-page'
+import { ProfilePage } from '@/components/pages/profile-page'
+import { BookmarksPage } from '@/components/pages/bookmarks-page'
+import { MyStoriesPage } from '@/components/pages/my-stories-page'
+import { NotFoundPage } from '@/components/pages/not-found-page'
+import { ScrollToTop } from '@/components/scroll-to-top'
+import { KeyboardShortcuts } from '@/components/keyboard-shortcuts'
+import { CommandPalette } from '@/components/command-palette'
+import { MobileNav } from '@/components/mobile-nav'
+import { motion, AnimatePresence } from 'framer-motion'
+import { pageTransition } from '@/lib/animations'
+import { useHydrated } from '@/hooks/use-hydrated'
+import { getPageSkeleton } from '@/components/page-skeleton'
+import { useBlogStore } from '@/lib/blog-store'
+import { blogPosts } from '@/lib/mock-data'
 
 export default function Home() {
+  const { currentPage, selectedBlogId, profileUserId } = useNavigation()
+  const hydrated = useHydrated()
+  const { getPostById } = useBlogStore()
+
+  const pageKey = selectedBlogId || currentPage
+
+  const renderPage = () => {
+    // If a blog is selected, show blog detail or 404 if not found
+    if (selectedBlogId) {
+      const storePost = getPostById(selectedBlogId)
+      const mockPost = blogPosts.find(p => p.id === selectedBlogId)
+      if (!storePost && !mockPost) {
+        return <NotFoundPage />
+      }
+      return <BlogDetail blogId={selectedBlogId} />
+    }
+
+    switch (currentPage) {
+      case 'home':
+        return <HomePage />
+      case 'read':
+        return <ReadPage />
+      case 'write':
+        return <WritePage />
+      case 'our-story':
+        return <OurStoryPage />
+      case 'signup':
+        return <SignupPage />
+      case 'login':
+        return <LoginPage />
+      case 'profile':
+        return <ProfilePage userId={profileUserId} />
+      case 'bookmarks':
+        return <BookmarksPage />
+      case 'my-stories':
+        return <MyStoriesPage />
+      case 'not-found':
+        return <NotFoundPage />
+      default:
+        return <HomePage />
+    }
+  }
+
+  // Show skeleton while hydrating
+  if (!hydrated) {
+    return (
+      <div className="min-h-screen flex flex-col">
+        <a href="#main-content" className="skip-to-content">
+          Skip to content
+        </a>
+        <Header />
+        <main id="main-content" className="flex-1" tabIndex={-1}>
+          {getPageSkeleton(currentPage)}
+        </main>
+        <Footer />
+      </div>
+    )
+  }
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <div className="min-h-screen flex flex-col">
+      {/* Skip to content — accessibility */}
+      <a href="#main-content" className="skip-to-content">
+        Skip to content
+      </a>
+      <Header />
+      <main id="main-content" className="flex-1" tabIndex={-1}>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={pageKey}
+            variants={pageTransition}
+            initial="initial"
+            animate="animate"
+            exit="exit"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+            {renderPage()}
+          </motion.div>
+        </AnimatePresence>
       </main>
+      <Footer />
+      <ScrollToTop />
+      <KeyboardShortcuts />
+      <CommandPalette />
+      <MobileNav />
+      {/* Bottom spacer for mobile nav bar */}
+      <div className="md:hidden h-16" aria-hidden="true" />
     </div>
-  );
+  )
 }
