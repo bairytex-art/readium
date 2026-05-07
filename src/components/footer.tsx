@@ -139,7 +139,7 @@ export function Footer() {
               />
               <button
                 onClick={handleSubscribe}
-                className="bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-2.5 rounded-lg text-sm font-medium transition-colors duration-200 flex items-center justify-center gap-1.5 btn-magnetic"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-2.5 rounded-full text-sm font-medium transition-colors duration-200 flex items-center justify-center gap-1.5 btn-magnetic"
               >
                 Subscribe
                 <ArrowUpRight className="w-3.5 h-3.5" />

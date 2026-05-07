@@ -261,3 +261,41 @@ export const bookmarksApi = {
     return response.json()
   },
 }
+
+// Notifications API
+export const notificationsApi = {
+  getNotifications: async (params?: {
+    limit?: number
+    offset?: number
+    unreadOnly?: boolean
+  }) => {
+    const searchParams = new URLSearchParams()
+    if (params?.limit) {
+      searchParams.set('limit', params.limit.toString())
+    }
+    if (params?.offset) {
+      searchParams.set('offset', params.offset.toString())
+    }
+    if (params?.unreadOnly) {
+      searchParams.set('unreadOnly', 'true')
+    }
+
+    const response = await fetch(`${API_BASE}/api/notifications?${searchParams}`)
+    if (!response.ok) {
+      throw new Error('Failed to fetch notifications')
+    }
+    return response.json()
+  },
+
+  markAsRead: async (notificationIds?: string[], markAll?: boolean) => {
+    const response = await fetch(`${API_BASE}/api/notifications`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ notificationIds, markAll }),
+    })
+    if (!response.ok) {
+      throw new Error('Failed to update notifications')
+    }
+    return response.json()
+  },
+}

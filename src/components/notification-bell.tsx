@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react'
 import { Bell, Heart, MessageCircle, UserPlus, Check } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useNavigation } from '@/lib/store'
+import { notificationsApi } from '@/lib/api'
 
 interface Notification {
   id: string
@@ -12,74 +13,16 @@ interface Notification {
   time: string
   read: boolean
   link?: { page: 'read' | 'profile' } & Record<string, string>
+  actor?: {
+    id: string
+    name: string
+    avatar?: string
+  }
+  post?: {
+    id: string
+    title: string
+  }
 }
-
-const initialNotifications: Notification[] = [
-  {
-    id: 'n1',
-    type: 'like',
-    message: "Someone liked your story 'The Art of Slow Travel'",
-    time: '2m ago',
-    read: false,
-    link: { page: 'read' },
-  },
-  {
-    id: 'n2',
-    type: 'comment',
-    message: "David Chen commented on 'Building in Public'",
-    time: '15m ago',
-    read: false,
-    link: { page: 'read' },
-  },
-  {
-    id: 'n3',
-    type: 'follow',
-    message: 'Elena Kowalski started following you',
-    time: '1h ago',
-    read: false,
-    link: { page: 'profile' },
-  },
-  {
-    id: 'n4',
-    type: 'like',
-    message: "Someone liked your story 'Sourdough and Solitude'",
-    time: '3h ago',
-    read: true,
-    link: { page: 'read' },
-  },
-  {
-    id: 'n5',
-    type: 'comment',
-    message: "Marcus Thompson commented on 'The Compound Effect'",
-    time: '5h ago',
-    read: true,
-    link: { page: 'read' },
-  },
-  {
-    id: 'n6',
-    type: 'follow',
-    message: 'Priya Sharma started following you',
-    time: '1d ago',
-    read: true,
-    link: { page: 'profile' },
-  },
-  {
-    id: 'n7',
-    type: 'like',
-    message: "Someone liked your story 'Digital Minimalism'",
-    time: '2d ago',
-    read: true,
-    link: { page: 'read' },
-  },
-  {
-    id: 'n8',
-    type: 'comment',
-    message: "Sarah Mitchell commented on 'Between Two Worlds'",
-    time: '3d ago',
-    read: true,
-    link: { page: 'read' },
-  },
-]
 
 const iconMap = {
   like: Heart,
@@ -94,12 +37,32 @@ const iconColorMap = {
 }
 
 export function NotificationBell() {
-  const [notifications, setNotifications] = useState<Notification[]>(initialNotifications)
+  const [notifications, setNotifications] = useState<Notification[]>([])
   const [isOpen, setIsOpen] = useState(false)
+  const [loading, setLoading] = useState(false)
   const panelRef = useRef<HTMLDivElement>(null)
-  const { navigate } = useNavigation()
+  const { navigate, openProfile, openBlog } = useNavigation()
 
   const unreadCount = notifications.filter((n) => !n.read).length
+
+  // Fetch notifications on mount and when panel opens
+  useEffect(() => {
+    if (isOpen) {
+      fetchNotifications()
+    }
+  }, [isOpen])
+
+  const fetchNotifications = async () => {
+    try {
+      setLoading(true)
+      const data = await notificationsApi.getNotifications({ limit: 20 })
+      setNotifications(data)
+    } catch (error) {
+      console.error('Failed to fetch notifications:', error)
+    } finally {
+      setLoading(false)
+    }
+  }
 
   // Close on outside click
   useEffect(() => {
@@ -125,17 +88,33 @@ export function NotificationBell() {
     }
   }, [isOpen])
 
-  const markAllAsRead = () => {
-    setNotifications((prev) => prev.map((n) => ({ ...n, read: true })))
+  const markAllAsRead = async () => {
+    try {
+      await notificationsApi.markAsRead(undefined, true)
+      setNotifications((prev) => prev.map((n) => ({ ...n, read: true })))
+    } catch (error) {
+      console.error('Failed to mark all as read:', error)
+    }
   }
 
-  const handleNotificationClick = (notification: Notification) => {
-    setNotifications((prev) =>
-      prev.map((n) => (n.id === notification.id ? { ...n, read: true } : n))
-    )
+  const handleNotificationClick = async (notification: Notification) => {
+    try {
+      await notificationsApi.markAsRead([notification.id])
+      setNotifications((prev) =>
+        prev.map((n) => (n.id === notification.id ? { ...n, read: true } : n))
+      )
+    } catch (error) {
+      console.error('Failed to mark notification as read:', error)
+    }
     setIsOpen(false)
     if (notification.link) {
-      navigate(notification.link.page)
+      if (notification.link.page === 'profile' && notification.link.id) {
+        openProfile(notification.link.id)
+      } else if (notification.link.page === 'read' && notification.link.id) {
+        openBlog(notification.link.id)
+      } else {
+        navigate(notification.link.page)
+      }
     }
   }
 
@@ -182,7 +161,17 @@ export function NotificationBell() {
 
             {/* Notification List */}
             <div className="max-h-96 overflow-y-auto">
-              {notifications.map((notification, index) => {
+              {loading ? (
+                <div className="flex items-center justify-center py-8">
+                  <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-primary"></div>
+                </div>
+              ) : notifications.length === 0 ? (
+                <div className="flex flex-col items-center justify-center py-8 text-muted-foreground">
+                  <Bell className="w-8 h-8 mb-2 opacity-50" />
+                  <p className="text-sm">No notifications yet</p>
+                </div>
+              ) : (
+                notifications.map((notification, index) => {
                 const Icon = iconMap[notification.type]
                 const colorClass = iconColorMap[notification.type]
                 return (
@@ -216,7 +205,8 @@ export function NotificationBell() {
                     )}
                   </motion.button>
                 )
-              })}
+                })
+              )}
             </div>
 
             {/* Footer */}

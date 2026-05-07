@@ -1149,11 +1149,42 @@ html.dark {
   animation: breathe 4s ease-in-out infinite;
 }
 
+/* ===== ORGANIC FLOATING ANIMATION ===== */
+@keyframes float-organic {
+  0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  33% { transform: translate(2%, -1%) scale(1.02) rotate(1deg); }
+  66% { transform: translate(-1%, 2%) scale(0.98) rotate(-1deg); }
+  100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+}
+
+.hero-aura-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 0;
+  mix-blend-mode: multiply;
+  animation: float-organic 15s ease-in-out infinite alternate;
+}
+
+.dark .hero-aura-blob {
+  opacity: 0.08;
+  mix-blend-mode: screen;
+}
+
 /* ===== HERO DOT GRID BACKGROUND ===== */
+@keyframes dot-flow {
+  0% { background-position: 0 0; }
+  100% { background-position: 28px 28px; }
+}
 .hero-dot-grid {
   background-image: radial-gradient(circle, var(--border) 1px, transparent 1px);
   background-size: 28px 28px;
   opacity: 0.35;
+}
+.hero-dot-grid-animated {
+  animation: dot-flow 30s linear infinite;
 }
 .dark .hero-dot-grid {
   background-image: radial-gradient(circle, rgba(82, 183, 136, 0.12) 1px, transparent 1px);

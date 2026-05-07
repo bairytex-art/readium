@@ -25,6 +25,8 @@ model User {
   bookmarks     Bookmark[]
   followers     Follow[]  @relation("UserFollowers")
   following     Follow[]  @relation("UserFollowing")
+  notifications Notification[]
+  notificationActions Notification[] @relation("NotificationActor")
 
   // Profile computed: followerCount, followingCount, postCount
   // These are computed via queries, not stored
@@ -51,6 +53,7 @@ model Post {
   likes         Like[]
   bookmarks     Bookmark[]
   tags          Tag[]
+  notifications Notification[]
 
   @@index([authorId])
   @@index([category])
@@ -122,4 +125,23 @@ model Follow {
   @@unique([followerId, followingId])
   @@index([followerId])
   @@index([followingId])
+}
+
+model Notification {
+  id          String   @id @default(cuid())
+  userId      String
+  type        String   // "like" | "comment" | "follow"
+  message     String
+  read        Boolean  @default(false)
+  postId      String?  // Optional, for like/comment notifications
+  actorId     String?  // Optional, user who performed the action
+  createdAt   DateTime @default(now())
+
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  post        Post?    @relation(fields: [postId], references: [id], onDelete: Cascade)
+  actor       User?    @relation("NotificationActor", fields: [actorId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([read])
+  @@index([createdAt])
 }

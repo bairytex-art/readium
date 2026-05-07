@@ -169,7 +169,7 @@ export const blogPosts: BlogPost[] = [
     authorId: 'user-1',
     category: 'Travel',
     tags: ['Travel', 'Slow Living', 'Mindfulness'],
-    coverImage: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=500&fit=crop',
+    coverImage: 'https://images.pexels.com/photos/1486222/pexels-photo-1486222.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop',
     readTime: 6,
     likes: 342,
     createdAt: '2025-01-15',
@@ -201,7 +201,7 @@ export const blogPosts: BlogPost[] = [
     authorId: 'user-2',
     category: 'Business',
     tags: ['Startup', 'Transparency', 'Marketing'],
-    coverImage: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&h=500&fit=crop',
+    coverImage: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop',
     readTime: 5,
     likes: 287,
     createdAt: '2025-02-03',
@@ -233,7 +233,7 @@ export const blogPosts: BlogPost[] = [
     authorId: 'user-4',
     category: 'Food',
     tags: ['Food', 'Culture', 'Stories'],
-    coverImage: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&h=500&fit=crop',
+    coverImage: 'https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop',
     readTime: 7,
     likes: 456,
     createdAt: '2025-01-28',
@@ -263,7 +263,7 @@ export const blogPosts: BlogPost[] = [
     authorId: 'user-5',
     category: 'Science',
     tags: ['Neuroscience', 'Learning', 'Growth'],
-    coverImage: 'https://images.unsplash.com/photo-1559757175-5700dde675bc?w=800&h=500&fit=crop',
+    coverImage: 'https://images.pexels.com/photos/5386754/pexels-photo-5386754.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop',
     readTime: 8,
     likes: 523,
     createdAt: '2025-02-10',
@@ -295,7 +295,7 @@ export const blogPosts: BlogPost[] = [
     authorId: 'user-8',
     category: 'Lifestyle',
     tags: ['Minimalism', 'Digital Wellness', 'Focus'],
-    coverImage: 'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=800&h=500&fit=crop',
+    coverImage: 'https://images.pexels.com/photos/1476321/pexels-photo-1476321.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop',
     readTime: 5,
     likes: 389,
     createdAt: '2025-02-18',
@@ -322,7 +322,7 @@ export const blogPosts: BlogPost[] = [
     authorId: 'user-7',
     category: 'Health',
     tags: ['Wellness', 'Productivity', 'Self-Care'],
-    coverImage: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&h=500&fit=crop',
+    coverImage: 'https://images.pexels.com/photos/1024989/pexels-photo-1024989.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop',
     readTime: 4,
     likes: 215,
     createdAt: '2025-01-22',
@@ -349,7 +349,7 @@ export const blogPosts: BlogPost[] = [
     authorId: 'user-3',
     category: 'Culture',
     tags: ['Identity', 'Culture', 'Third Culture'],
-    coverImage: 'https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=800&h=500&fit=crop',
+    coverImage: 'https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop',
     readTime: 6,
     likes: 478,
     createdAt: '2025-02-05',
@@ -376,7 +376,7 @@ export const blogPosts: BlogPost[] = [
     authorId: 'user-3',
     category: 'Art',
     tags: ['Art', 'Technology', 'Creativity'],
-    coverImage: 'https://images.unsplash.com/photo-1547891654-e66ed7ebb968?w=800&h=500&fit=crop',
+    coverImage: 'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop',
     readTime: 5,
     likes: 312,
     createdAt: '2025-01-10',
@@ -405,7 +405,7 @@ export const blogPosts: BlogPost[] = [
     authorId: 'user-6',
     category: 'Personal Growth',
     tags: ['Habits', 'Growth', 'Self-Improvement'],
-    coverImage: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&h=500&fit=crop',
+    coverImage: 'https://images.pexels.com/photos/1108571/pexels-photo-1108571.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop',
     readTime: 6,
     likes: 567,
     createdAt: '2025-02-22',
@@ -432,7 +432,7 @@ export const blogPosts: BlogPost[] = [
     authorId: 'user-4',
     category: 'Lifestyle',
     tags: ['Baking', 'Mindfulness', 'Slow Living'],
-    coverImage: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&h=500&fit=crop',
+    coverImage: 'https://images.pexels.com/photos/4065145/pexels-photo-4065145.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop',
     readTime: 5,
     likes: 298,
     createdAt: '2025-02-14',
@@ -459,7 +459,7 @@ export const blogPosts: BlogPost[] = [
     authorId: 'user-6',
     category: 'Business',
     tags: ['Remote Work', 'Future', 'Productivity'],
-    coverImage: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=500&fit=crop',
+    coverImage: 'https://picsum.photos/800/500?random=6',
     readTime: 5,
     likes: 234,
     createdAt: '2025-01-30',
@@ -486,10 +486,234 @@ export const blogPosts: BlogPost[] = [
     authorId: 'user-7',
     category: 'Personal Growth',
     tags: ['Self-Improvement', 'Mindfulness', 'Wellness'],
-    coverImage: 'https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=800&h=500&fit=crop',
+    coverImage: 'https://images.pexels.com/photos/956981/pexels-photo-956981.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop',
     readTime: 5,
     likes: 445,
     createdAt: '2025-02-25',
+    status: 'published',
+  },
+  {
+    id: '13',
+    title: 'The Architecture of Silence: Finding Space in a Noisy World',
+    excerpt: 'In cities that never sleep and minds that never rest, silence has become the ultimate luxury. Here\'s how to build it into your life.',
+    content: `<p>We live in the age of noise. Not just sound — notifications, opinions, expectations, the constant hum of productivity. Silence isn't just absence of noise anymore. It's an act of rebellion.</p>
+
+<h2>The Sound of Nothing</h2>
+
+<p>I spent a week in a remote cabin with no internet, no phone reception. The first day was anxiety. The second was boredom. By day three, something shifted. I started hearing things — the wind, my own breathing, the space between thoughts. Silence wasn't empty. It was full.</p>
+
+<blockquote>In a world that values expression, the most revolutionary act is listening.</blockquote>
+
+<h2>Building Quiet Spaces</h2>
+
+<p>You don't need a cabin to find silence. You can create it in small pockets. A morning without screens. A walk without headphones. A room where notifications are banned. These aren't escapes from reality — they're returns to it.</p>
+
+<p>Silence is where you hear yourself again. And in that hearing, everything else becomes clearer.</p>`,
+    author: authors[0],
+    authorId: 'user-1',
+    category: 'Lifestyle',
+    tags: ['Silence', 'Mindfulness', 'Digital Detox'],
+    coverImage: 'https://images.pexels.com/photos/1108571/pexels-photo-1108571.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop',
+    readTime: 6,
+    likes: 387,
+    createdAt: '2025-03-01',
+    featured: true,
+    status: 'published',
+  },
+  {
+    id: '14',
+    title: 'The Economics of Attention: Why Your Focus Is Worth Billions',
+    excerpt: 'Every app, every platform, every notification is competing for the same scarce resource. Understanding the attention economy changes everything about how you spend your time.',
+    content: `<p>Your attention is the most valuable commodity on Earth, and you're giving it away for free. The attention economy isn't metaphor — it's the business model of the modern internet.</p>
+
+<h2>The Attention Auction</h2>
+
+<p>Every time you open your phone, there's an auction happening. Instagram bids with dopamine. Twitter bids with outrage. TikTok bids with endless novelty. You're the prize, and you didn't even know you were for sale.</p>
+
+<h2>Reclaiming Your Mind</h2>
+
+<p>The solution isn't better willpower. It's better architecture. Turn off notifications. Use apps intentionally instead of reactively. Schedule deep work sessions. Treat your attention like money — because that's exactly how tech companies treat it.</p>
+
+<blockquote>You can't be present in your own life if you're always performing for an audience you can't see.</blockquote>
+
+<p>The attention economy will keep expanding. The only way out is to opt out, deliberately and consistently.</p>`,
+    author: authors[1],
+    authorId: 'user-2',
+    category: 'Technology',
+    tags: ['Attention Economy', 'Digital Wellness', 'Focus'],
+    coverImage: 'https://images.pexels.com/photos/1476321/pexels-photo-1476321.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop',
+    readTime: 7,
+    likes: 423,
+    createdAt: '2025-03-05',
+    featured: true,
+    status: 'published',
+  },
+  {
+    id: '15',
+    title: 'Cooking as Resistance: The Politics of the Kitchen',
+    excerpt: 'In a world of processed food and fast meals, choosing to cook is an act of defiance. It\'s about culture, health, and taking back control.',
+    content: `<p>Every meal is a political act. What you eat, where it comes from, who profits — these aren't neutral choices. The kitchen has become a battleground between convenience and control.</p>
+
+<h2>The Food Industrial Complex</h2>
+
+<p>The modern food system wants you dependent. Ultra-processed foods designed for addiction rather than nutrition. Supply chains that value shelf life over flavor. Marketing that creates cravings rather than satisfies hunger. Cooking is resistance.</p>
+
+<h2>Taking Back the Plate</h2>
+
+<p>When you cook, you reclaim something fundamental. You decide what goes into your body. You support farmers instead of corporations. You preserve cultural knowledge instead of letting it die. You nourish instead of just feeding.</p>
+
+<blockquote>Cooking isn't a chore. It's a declaration of independence from the industrial food system.</blockquote>
+
+<p>Every home-cooked meal is a vote for a different kind of world — one where food is about life, not profit.</p>`,
+    author: authors[3],
+    authorId: 'user-4',
+    category: 'Food',
+    tags: ['Food Politics', 'Cooking', 'Sustainability'],
+    coverImage: 'https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop',
+    readTime: 8,
+    likes: 512,
+    createdAt: '2025-03-10',
+    featured: true,
+    status: 'published',
+  },
+  {
+    id: '16',
+    title: 'The End of Expertise: Why Generalists Win in the Age of AI',
+    excerpt: 'Specialization used to be the path to success. But in a world where AI knows everything, the ability to connect ideas across fields is the real advantage.',
+    content: `<p>For centuries, we've worshipped specialists. The person who knows one thing deeply. But AI has changed the game. It knows everything deeply, instantly. The human advantage has shifted.</p>
+
+<h2>The Specialist's Dilemma</h2>
+
+<p>When you compete against AI on its home turf — factual recall, pattern recognition, data analysis — you lose. The specialist who spent decades mastering one domain finds themselves competing with an entity that has mastered all domains.</p>
+
+<h2>The Generalist Advantage</h2>
+
+<p>But AI can't connect. It can't synthesize across fields in human ways. It can't spot the patterns that exist between disciplines. This is where humans shine — the ability to see what specialists miss because they're too close to their subject.</p>
+
+<blockquote>In a world of infinite information, the scarce resource isn't knowledge — it's wisdom.</blockquote>
+
+<p>The future belongs to those who can dance between fields, who can bring insights from one domain to solve problems in another. The generalist's time has come.</p>`,
+    author: authors[4],
+    authorId: 'user-5',
+    category: 'Science',
+    tags: ['AI', 'Future of Work', 'Interdisciplinarity'],
+    coverImage: 'https://images.pexels.com/photos/1181677/pexels-photo-1181677.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop',
+    readTime: 6,
+    likes: 478,
+    createdAt: '2025-03-15',
+    featured: true,
+    status: 'published',
+  },
+  {
+    id: '17',
+    title: 'Walking Cities: How Foot Travel Reveals Hidden Truths',
+    excerpt: 'Cars show you the highways. Walking shows you the neighborhoods. At human speed, cities reveal their secrets and their souls.',
+    content: `<p>I walked across my city. Not as a tourist, but as a pilgrim. Every street, every alley, every shortcut. What I discovered wasn't just geography — it was the hidden life of the place I thought I knew.</p>
+
+<h2>The Speed of Seeing</h2>
+
+<p>At walking speed, you notice things cars hide. The way morning light hits different buildings. The patterns of foot traffic that tell you where people really go. The small businesses that survive despite being invisible from main roads.</p>
+
+<h2>Urban Archaeology</h2>
+
+<p>Walking is urban archaeology. You find traces of the past — old streetcar tracks, forgotten plaques, buildings that remember different eras. You see the layers of how the city grew, not just its current state.</p>
+
+<blockquote>Cities aren't meant to be driven through. They're meant to be discovered on foot.</blockquote>
+
+<p>The best way to understand any place is to slow down to human speed and let it reveal itself.</p>`,
+    author: authors[2],
+    authorId: 'user-3',
+    category: 'Travel',
+    tags: ['Urban Exploration', 'Walking', 'City Life'],
+    coverImage: 'https://images.pexels.com/photos/1486222/pexels-photo-1486222.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop',
+    readTime: 5,
+    likes: 334,
+    createdAt: '2025-03-20',
+    featured: true,
+    status: 'published',
+  },
+  {
+    id: '18',
+    title: 'The Mathematics of Kindness: Why Nice Guys Don\'t Finish Last',
+    excerpt: 'Game theory and evolutionary biology reveal something surprising: cooperation, not competition, is often the winning strategy in the long run.',
+    content: `<p>"Nice guys finish last" is one of those phrases that sounds wise but falls apart under scrutiny. The math of human interaction tells a different story.</p>
+
+<h2>Game Theory of Cooperation</h2>
+
+<p>In repeated games, the most successful strategy isn't always aggression. It's often "tit for tat" — start cooperative, mirror your opponent, but be quick to forgive. This strategy dominates in computer tournaments and in human societies.</p>
+
+<h2>The Evolutionary Advantage</h2>
+
+<p>Humans survived because we cooperated. We shared food, cared for each other's children, built together. The lone wolf died. The tribe thrived. Kindness isn't weakness — it's the original survival strategy.</p>
+
+<blockquote>The most competitive move in the long game is often the most cooperative one in the short game.</blockquote>
+
+<p>Being kind isn't about being nice. It's about being smart enough to recognize that we rise together.</p>`,
+    author: authors[5],
+    authorId: 'user-6',
+    category: 'Science',
+    tags: ['Game Theory', 'Evolution', 'Cooperation'],
+    coverImage: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop',
+    readTime: 7,
+    likes: 445,
+    createdAt: '2025-03-25',
+    featured: true,
+    status: 'published',
+  },
+  {
+    id: '19',
+    title: 'The Loneliness Epidemic: Why We\'re More Connected Than Ever',
+    excerpt: 'Social media promised connection but delivered performance. The paradox of modern life is unprecedented digital connection alongside profound social isolation.',
+    content: `<p>We have hundreds of Facebook friends but no one to call at 2 AM. We post photos of perfect lives while feeling perfectly miserable. Something has gone terribly wrong with how we connect.</p>
+
+<h2>The Performance of Connection</h2>
+
+<p>Social media turned relationships into content. We don't share experiences — we curate them. We don't have conversations — we post monologues. We don't build intimacy — we accumulate likes.</p>
+
+<h2>The Cost of Curation</h2>
+
+<p>When every interaction is performed, authenticity dies. We become afraid to show vulnerability, to admit struggle, to be human. The result is a world of beautiful, perfect, and utterly lonely people.</p>
+
+<blockquote>True connection requires the courage to be imperfect in front of others.</blockquote>
+
+<p>The solution isn't better technology. It's braver humanity — showing up as we are, not as we think we should be.</p>`,
+    author: authors[6],
+    authorId: 'user-7',
+    category: 'Health',
+    tags: ['Loneliness', 'Social Media', 'Mental Health'],
+    coverImage: 'https://images.pexels.com/photos/1181677/pexels-photo-1181677.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop',
+    readTime: 6,
+    likes: 589,
+    createdAt: '2025-04-01',
+    featured: true,
+    status: 'published',
+  },
+  {
+    id: '20',
+    title: 'Writing as Thinking: How Putting Words Down Changes Your Mind',
+    excerpt: 'The act of writing isn\'t just recording thoughts — it\'s creating them. Here\'s how the physical act of writing reshapes your thinking.',
+    content: `<p>I used to think writing was about expressing ideas I already had. Then I discovered something remarkable: the act of writing generates the ideas. The pen doesn't just record — it discovers.</p>
+
+<h2>Thinking on Paper</h2>
+
+<p>Writing forces linear clarity. Your mind can jump between associations, but paper demands sequence. This constraint creates insight. You see connections you didn't know you had. You find gaps in your reasoning you couldn't spot while thinking.</p>
+
+<h2>The Physicality of Thought</h2>
+
+<p>There's something about the physical act — the feel of pen on paper, the rhythm of typing — that engages different parts of your brain. It's not just cognitive; it's embodied.</p>
+
+<blockquote>You don't write what you think. You write to find out what you think.</blockquote>
+
+<p>Writing isn't communication. It's thinking made visible. And in that visibility, thoughts become clearer, stronger, and more useful.</p>`,
+    author: authors[7],
+    authorId: 'user-8',
+    category: 'Science',
+    tags: ['Neuroscience', 'Learning', 'Growth'],
+    coverImage: 'https://images.pexels.com/photos/5386754/pexels-photo-5386754.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop',
+    readTime: 8,
+    likes: 367,
+    createdAt: '2025-04-05',
+    featured: true,
     status: 'published',
   },
 ]

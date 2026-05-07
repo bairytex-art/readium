@@ -2,7 +2,7 @@
 
 import { useNavigation } from '@/lib/store'
 import { blogPosts, categories } from '@/lib/mock-data'
-import { ArrowRight, ChevronLeft, ChevronRight, BookOpen, PenLine, Users, Globe, TrendingUp, Clock, Heart, Quote, Sparkles, Plane, Laptop, Leaf, Theater, HeartPulse, Utensils, Microscope, TrendingUp as TrendingUpIcon, Palette, Sprout } from 'lucide-react'
+import { ArrowRight, ChevronLeft, ChevronRight, BookOpen, PenLine, Users, Globe, TrendingUp, Clock, Heart, Quote, Sparkles, Plane, Laptop, Leaf, Theater, HeartPulse, Utensils, Microscope, TrendingUp as TrendingUpIcon, Palette, Sprout, Star, Pen, Book, Feather } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { motion, AnimatePresence, useScroll, useTransform, useMotionValue, useSpring, useInView } from 'framer-motion'
@@ -247,6 +247,20 @@ export function HomePage() {
   const heroY = useTransform(scrollYProgress, [0, 1], ['0%', '30%'])
   const heroOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0.2])
 
+  // Mouse movement for interactive background
+  const mouseX = useMotionValue(0)
+  const mouseY = useMotionValue(0)
+  const springMouseX = useSpring(mouseX, { stiffness: 100, damping: 30 })
+  const springMouseY = useSpring(mouseY, { stiffness: 100, damping: 30 })
+
+  const handleMouseMove = useCallback((e: React.MouseEvent) => {
+    const { clientX, clientY } = e
+    const moveX = (clientX - (typeof window !== 'undefined' ? window.innerWidth : 1920) / 2) / 25
+    const moveY = (clientY - (typeof window !== 'undefined' ? window.innerHeight : 1080) / 2) / 25
+    mouseX.set(moveX)
+    mouseY.set(moveY)
+  }, [mouseX, mouseY])
+
   const handleSubscribe = () => {
     if (!email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       toast({
@@ -264,11 +278,18 @@ export function HomePage() {
   }
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col" onMouseMove={handleMouseMove}>
       {/* Hero Section — Parallax */}
       <section ref={heroRef} className="relative overflow-hidden gradient-hero parallax-hero hero-gradient-border">
+        {/* Animated Background Auras */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="hero-aura-blob bg-primary/20 w-[40rem] h-[40rem] -top-20 -right-20" style={{ animationDelay: '0s' }} />
+          <div className="hero-aura-blob bg-amber/20 w-[35rem] h-[35rem] -bottom-20 -left-20" style={{ animationDelay: '-5s' }} />
+          <div className="hero-aura-blob bg-forest/15 w-[30rem] h-[30rem] top-1/4 left-1/3" style={{ animationDelay: '-10s' }} />
+        </div>
+
         {/* Dot grid background */}
-        <div className="absolute inset-0 hero-dot-grid pointer-events-none" />
+        <div className="absolute inset-0 hero-dot-grid hero-dot-grid-animated pointer-events-none" />
 
         {/* Parallax floating decorative elements */}
         <motion.div style={{ y: heroY }} className="absolute inset-0 pointer-events-none">
@@ -276,6 +297,22 @@ export function HomePage() {
           <div className="absolute bottom-0 right-[25%] w-[28rem] h-[28rem] bg-amber/5 rounded-full blur-3xl float-slow breathe" />
           <div className="absolute top-[40%] left-[5%] w-48 h-48 bg-forest/3 rounded-full blur-2xl float-delayed breathe" />
         </motion.div>
+
+        {/* Floating Interactive Objects */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <motion.div style={{ x: springMouseX, y: springMouseY }} className="absolute top-[15%] left-[12%] opacity-20 dark:opacity-10">
+            <Pen className="w-12 h-12 text-primary rotate-[-15deg] float-animation" />
+          </motion.div>
+          <motion.div style={{ x: useTransform(springMouseX, (v) => -v * 1.5), y: useTransform(springMouseY, (v) => -v * 1.5) }} className="absolute top-[25%] right-[15%] opacity-15 dark:opacity-10">
+            <Book className="w-16 h-16 text-amber rotate-[10deg] float-slow" />
+          </motion.div>
+          <motion.div style={{ x: useTransform(springMouseX, (v) => v * 0.8), y: useTransform(springMouseY, (v) => -v * 1.2) }} className="absolute bottom-[20%] left-[10%] opacity-20 dark:opacity-10">
+            <Feather className="w-14 h-14 text-forest rotate-[20deg] float-delayed" />
+          </motion.div>
+          <motion.div style={{ x: useTransform(springMouseX, (v) => -v * 0.5), y: useTransform(springMouseY, (v) => v * 0.7) }} className="absolute bottom-[30%] right-[10%] opacity-15 dark:opacity-10">
+            <Star className="w-10 h-10 text-primary rotate-[-5deg] float-animation" />
+          </motion.div>
+        </div>
 
         {/* Noise texture overlay */}
         <div className="absolute inset-0 noise-overlay pointer-events-none" />

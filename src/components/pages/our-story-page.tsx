@@ -70,6 +70,11 @@ export function OurStoryPage() {
     <div className="flex flex-col">
       {/* ===== Hero ===== */}
       <section className="relative overflow-hidden gradient-hero parallax-hero">
+        {/* Animated Background Auras */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="hero-aura-blob bg-primary/10 w-[30rem] h-[30rem] -top-10 -right-10" style={{ animationDelay: '0s' }} />
+          <div className="hero-aura-blob bg-amber/10 w-[25rem] h-[25rem] -bottom-10 -left-10" style={{ animationDelay: '-7s' }} />
+        </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 lg:py-36 relative">
           {/* Floating decorative elements */}
           <div className="absolute top-10 right-0 w-96 h-96 bg-primary/[0.03] rounded-full blur-3xl float-animation pointer-events-none" />

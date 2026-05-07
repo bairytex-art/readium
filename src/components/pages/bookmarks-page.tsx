@@ -42,10 +42,10 @@ export function BookmarksPage() {
             Log in to bookmark your favorite stories and find them all in one place.
           </p>
           <div className="flex gap-4 justify-center">
-            <Button onClick={() => navigate('login')} size="lg" className="rounded-xl">
+            <Button onClick={() => navigate('login')} size="lg" className="rounded-full">
               Log in
             </Button>
-            <Button onClick={() => navigate('signup')} variant="outline" size="lg" className="rounded-xl">
+            <Button onClick={() => navigate('signup')} variant="outline" size="lg" className="rounded-full">
               Sign up
             </Button>
           </div>

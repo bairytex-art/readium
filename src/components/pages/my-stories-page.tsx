@@ -49,7 +49,7 @@ export function MyStoriesPage() {
             <Button onClick={() => navigate('login')} size="lg" className="rounded-xl">
               Log in
             </Button>
-            <Button onClick={() => navigate('signup')} variant="outline" size="lg" className="rounded-xl">
+            <Button onClick={() => navigate('signup')} variant="outline" size="lg" className="rounded-full">
               Sign up
             </Button>
           </div>
